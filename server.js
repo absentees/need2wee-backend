@@ -3,7 +3,7 @@ var app = express()
 
 var  magnetSwitch;
 var magnet = require("pi-pins").connect(17);
-magnet.mode('in');
+magnet.mode('high');
 magnetSwitch = 0;
 
 app.get('/', function (req, res) {
