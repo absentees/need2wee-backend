@@ -3,7 +3,7 @@ var app = express()
 
 var  magnetSwitch;
 var magnet = require("pi-pins").connect(17);
-magnet.mode('high');
+magnet.mode('in');
 magnetSwitch = 0;
 
 app.get('/', function (req, res) {
@@ -16,9 +16,10 @@ var server = app.listen(80, function () {
   var port = server.address().port
 
   console.log('Example app listening at http://%s:%s', host, port)
-
+  console.log(magnet.value());
 })
 
 magnet.on('both', function () {
     console.log("magnet changed");
+    console.log(magnet.value());
 });
