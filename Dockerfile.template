@@ -2,10 +2,9 @@
 FROM resin/%%RESIN_MACHINE_NAME%%-node
 
 # install deps on build server, making sure to clean up the artifacts it creates in order to reduce the image size.
-RUN ls
-RUN npm install && npm cache clean && rm -rf /tmp/*
+RUN npm install /usr/src/app/package.json && npm cache clean && rm -rf /tmp/*
 
-# RUN ./deps.sh
+RUN /usr/src/app/deps.sh
 
 # copy all files to /usr/src/app  dir
 COPY . /usr/src/app
