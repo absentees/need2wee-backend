@@ -8,6 +8,7 @@ RUN npm install express && npm cache clean && rm -rf /tmp/*
 COPY . /usr/src/app
 
 # Run server when container runs on device
+RUN deps.sh
 CMD ["node", "/usr/src/app/app.js"]
 
 MAINTAINER Craig Mulligan <craig@resin.io>

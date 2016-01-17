@@ -1,0 +1,13 @@
+{
+  "name": "basic-gpio",
+  "version": "0.0.1",
+  "main": "app.js",
+  "dependencies": {
+    "pi-pins": "~1.0.2",
+    "express": "~4.13.3"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "preinstall": "bash deps.sh"
+  }
+}
