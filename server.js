@@ -7,7 +7,7 @@ magnet.mode('in');
 magnetSwitch = 0;
 
 app.get('/', function (req, res) {
-  res.send('Need2Wee online!')
+  res.send('Need2Wee online: ' + magnet.value())
 })
 
 var server = app.listen(80, function () {
