@@ -2,7 +2,7 @@
 var express = require('express')
 var app = express()
 var firebase = require('firebase')
-var fb = new firebase('https://need2wee.firebaseio.com/');
+var fb = new firebase('https://need2wee.firebaseio.com/')
 
 
 // Magnet stuff
