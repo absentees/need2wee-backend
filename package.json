@@ -3,9 +3,10 @@
   "version": "0.0.1",
   "main": "app.js",
   "dependencies": {
-    "pi-pins": "~1.0.2",
     "express": "4.13.3",
-		"firebase": "2.3.2"
+    "firebase": "^2.3.2",
+    "firebase-token-generator": "^2.0.0",
+    "pi-pins": "~1.0.2"
   },
   "devDependencies": {},
   "scripts": {
