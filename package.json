@@ -4,7 +4,8 @@
   "main": "app.js",
   "dependencies": {
     "pi-pins": "~1.0.2",
-    "express": "4.13.3"
+    "express": "4.13.3",
+		"firebase": "2.3.2"
   },
   "devDependencies": {},
   "scripts": {
