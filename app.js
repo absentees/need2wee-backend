@@ -1,8 +1,11 @@
 // Express stuff
 var express = require('express')
 var app = express()
-//var firebase = require('firebase')
-//var fb = new firebase('https://need2wee.firebaseio.com/')
+var firebase = require('firebase')
+// var FirebaseTokenGenerator = require("firebase-token-generator")
+// var tokenGenerator = new FirebaseTokenGenerator(process.env.firebasesecret)
+// var token = tokenGenerator.createToken()
+var fb = new firebase('https://need2wee.firebaseio.com/occupied')
 
 
 // Magnet stuff
@@ -25,13 +28,13 @@ var server = app.listen(80, function () {
 
 magnet.on('both', function () {
     console.log(magnet.value());
-		// if (magnet.value() == true) {
-		// 	fb.set({
-		// 		occupied: "true"
-		// 	});
-		// } else if(magnet.value() == false){
-		// 	fb.set({
-		// 		occupied: "false"
-		// 	});
-		// }
+		if (magnet.value() == true) {
+			fb.set({
+				occupied: "true"
+			});
+		} else if(magnet.value() == false){
+			fb.set({
+				occupied: "false"
+			});
+		}
 });
