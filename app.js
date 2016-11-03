@@ -2,11 +2,13 @@
 var express = require('express')
 var app = express()
 var firebase = require('firebase')
-// var FirebaseTokenGenerator = require("firebase-token-generator")
-// var tokenGenerator = new FirebaseTokenGenerator(process.env.firebasesecret)
-// var token = tokenGenerator.createToken()
 var fb = new firebase('https://need2wee.firebaseio.com/occupied')
 
+// Audio stuff
+var youtubeStream = require('youtube-audio-stream');
+var Lame = require('lame');
+var Speaker = require('speaker');
+var requestUrl = 'https://www.youtube.com/watch?v=eu0KsZ_MVBc';
 
 // Magnet stuff
 var magnetSwitch;
@@ -23,15 +25,24 @@ var server = app.listen(80, function () {
   var host = server.address().address;
   var port = server.address().port;
 
-  console.log('Example app listening at http://%s:%s', host, port)
+  console.log('Listening to wees on http://%s:%s', host, port)
 });
 
 magnet.on('both', function () {
+
     console.log(magnet.value());
+
 		if (magnet.value() == true) {
 			fb.set({
 				occupied: "true"
 			});
+
+      try {
+        youtubeStream(requestUrl).pipe(new Lame.Decoder).pipe(new Speaker);
+      } catch (exception) {
+        console.log("Audio exception: " + exception);
+      }
+
 		} else if(magnet.value() == false){
 			fb.set({
 				occupied: "false"
