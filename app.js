@@ -8,7 +8,7 @@ var fb = new firebase('https://need2wee.firebaseio.com/occupied')
 var youtubeStream = require('youtube-audio-stream');
 var Lame = require('lame');
 var Speaker = require('speaker');
-var requestUrl = 'https://www.youtube.com/watch?v=eu0KsZ_MVBc';
+var requestUrl = 'https://www.youtube.com/watch?v=eu0KsZ_MVBc'; // Avalanches - Since i left you
 
 // Magnet stuff
 var magnetSwitch;
