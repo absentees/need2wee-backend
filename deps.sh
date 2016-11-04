@@ -8,5 +8,7 @@ apt-get upgrade -y
 apt-get install -y libav-tools
 apt-get install -y alsa-utils libasound2-dev
 
+ln -s /usr/bin/avconv ffmpeg
+
 # Recent node now installs dependencies before running preinstall scripts :(
 npm install speaker@~0.2.6
