@@ -10,11 +10,17 @@ var Lame = require('lame');
 var Speaker = require('speaker');
 var requestUrl = 'https://www.youtube.com/watch?v=rTyN-vvFIkE'; // Thinking music
 
+var toiletMusicStream;
+var toiletDecoder = new Lame.Decoder;
+var toiletSpeaker = new Speaker;
+
 // Magnet stuff
 var magnetSwitch;
 var magnet = require("pi-pins").connect(17);
 magnet.mode('in');
 magnetSwitch = 0;
+
+
 
 app.get('/', function (req, res) {
   res.send('Need2Wee online: ' + magnet.value())
@@ -38,7 +44,7 @@ magnet.on('both', function () {
 			});
 
       try {
-        youtubeStream(requestUrl).pipe(new Lame.Decoder).pipe(new Speaker);
+        toiletMusicStream = youtubeStream(requestUrl).pipe(toiletDecoder).pipe(toiletSpeaker);
       } catch (exception) {
         console.log("Audio exception: " + exception);
       }
@@ -47,5 +53,7 @@ magnet.on('both', function () {
 			fb.set({
 				occupied: "false"
 			});
+
+      toiletMusicStream.end();
 		}
 });
