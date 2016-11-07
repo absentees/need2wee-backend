@@ -54,6 +54,8 @@ magnet.on('both', function () {
 				occupied: "false"
 			});
 
-      toiletMusicStream.end();
+      if (toiletMusicStream) {
+        toiletMusicStream.end();
+      }
 		}
 });
