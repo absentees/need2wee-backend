@@ -56,6 +56,8 @@ magnet.on('both', function () {
 
       if (toiletMusicStream) {
         toiletMusicStream.end();
+	toiletDecoder = new Lame.Decoder;
+	toiletSpeaker = new Speaker;
       }
 		}
 });
