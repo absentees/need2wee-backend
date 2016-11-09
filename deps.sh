@@ -14,3 +14,6 @@ cd ~
 
 # Recent node now installs dependencies before running preinstall scripts :(
 npm install speaker@~0.2.6
+
+# turn sound down
+amixer sset 'PCM' 65%
