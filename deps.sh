@@ -6,7 +6,8 @@ set -o pipefail
 apt-get update
 apt-get upgrade -y
 apt-get install -y libav-tools
-apt-get install -y alsa-utils libasound2-dev
+# Dont think i need these
+# apt-get install -y alsa-utils libasound2-dev
 
 cd /usr/bin/
 ln -s avconv ffmpeg
@@ -16,4 +17,4 @@ cd ~
 npm install speaker@~0.2.6
 
 # turn sound down
-amixer sset 'PCM' 65%
+# amixer sset 'PCM' 65%
