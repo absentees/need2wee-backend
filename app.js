@@ -61,6 +61,7 @@ if (magnet.value() == true) {
     toiletMusicStream.end();
     toiletDecoder = new Lame.Decoder;
     toiletSpeaker = new Speaker;
+    
   }
 }
 });
